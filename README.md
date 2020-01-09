@@ -1,19 +1,3 @@
-# -*- coding: utf-8 -*-
----
-jupyter:
-  jupytext:
-    formats: ipynb,py:percent,md
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.2
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
----
-
 # Exploración de base de datos de Atributos de Calidad
 
 > Se visitó el 14 de Diciembre de 2019 el sitio http://ctp.di.fct.unl.pt/RE2017/pages/submission/data_papers/
