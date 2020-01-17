@@ -1,29 +1,28 @@
 # -*- coding: utf-8 -*-
-# ---
-# jupyter:
-#   jupytext:
-#     formats: ipynb,py:percent,md
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.3.2
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
+---
+jupyter:
+  jupytext:
+    formats: ipynb,py:percent,md
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.2'
+      jupytext_version: 1.3.2
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
 
-# %% [markdown]
-# # Exploración de base de datos de Atributos de Calidad
-#
-# > Se visitó el 14 de Diciembre de 2019 el sitio http://ctp.di.fct.unl.pt/RE2017/pages/submission/data_papers/
-#
-# Se encuentran tres *datasets*, sin embargo in interés principal de este estudio es identificar *Quality Attributes*, así que se utiliza la base de datos de [_Quality Attributes_](http://ctp.di.fct.unl.pt/RE2017//downloads/datasets/nfr.arff) que pertenece a [_TeraPROMISE_](https://terapromise.csc.ncsu.edu/!/#repo/view/head/requirements/nfr) y se queda a discusión usar [_SecReq_](http://www.se.uni-hannover.de/pages/en:projekte_re_secreq), que sólo involucra atributos de seguridad.
-#
-# Un vistazo al dataset se puede observar en la siguiente lectura:
+# Exploración de base de datos de Atributos de Calidad
 
-# %%
+> Se visitó el 14 de Diciembre de 2019 el sitio http://ctp.di.fct.unl.pt/RE2017/pages/submission/data_papers/
+
+Se encuentran tres *datasets*, sin embargo in interés principal de este estudio es identificar *Quality Attributes*, así que se utiliza la base de datos de [_Quality Attributes_](http://ctp.di.fct.unl.pt/RE2017//downloads/datasets/nfr.arff) que pertenece a [_TeraPROMISE_](https://terapromise.csc.ncsu.edu/!/#repo/view/head/requirements/nfr) y se queda a discusión usar [_SecReq_](http://www.se.uni-hannover.de/pages/en:projekte_re_secreq), que sólo involucra atributos de seguridad.
+
+Un vistazo al dataset se puede observar en la siguiente lectura:
+
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -40,11 +39,11 @@ warnings.filterwarnings("ignore")
 # Data read
 data = pd.read_csv('nfr.csv')
 data
+```
 
-# %% [markdown]
-# ## Análisis Exploratorio de Datos
+## Análisis Exploratorio de Datos
 
-# %%
+```python
 bars = alt.Chart(data).mark_bar(size=50).encode(
     x=alt.X("class", axis=alt.Axis(title='Categoría')),
     y=alt.Y("count():Q", axis=alt.Axis(title='Frecuencia')),
@@ -65,8 +64,9 @@ text = bars.mark_text(
     width=700,
     title = "Distribución de las Categorías",
 )
+```
 
-# %%
+```python
 data['id'] = 1
 df2 = pd.DataFrame(data.groupby('class').count()['id']).reset_index()
 
@@ -94,8 +94,9 @@ text = bars.mark_text(
     width=700,
     title = "Distribución porcentual de las categorías",
 )
+```
 
-# %%
+```python
 percentage = data['class'].value_counts(normalize=True) * 100
 percentage = percentage.round(2)
 fig = plt.figure(
@@ -108,58 +109,65 @@ fig = plt.figure(
 )
 plt.title('Distribución porcentual de las categorías')
 plt.show()
+```
 
-# %%
+```python
 data['req_length'] = data['RequirementText'].str.len()
+```
 
-# %%
+```python
 plt.figure(figsize=(12.8,6))
 sns.distplot(data['req_length']).set_title('Distribución de tamaño de requisitos');
+```
 
-# %% [markdown]
-# ### Descripción del tamaño de los requisitos
+### Descripción del tamaño de los requisitos
 
-# %%
+```python
 data['req_length'].describe()
+```
 
-# %%
+```python
 plt.figure(figsize=(12.8,6))
 sns.boxplot(data=data, x='class', y='req_length', width=.5);
+```
 
-# %% [markdown]
-# ### Distribución hasta el Cuantil 95
+### Distribución hasta el Cuantil 95
 
-# %%
+```python
 quantile_95 = data['req_length'].quantile(0.95)
 df_95 = data[data['req_length'] < quantile_95]
+```
 
-# %%
+```python
 plt.figure(figsize=(12.8,6))
 sns.distplot(df_95['req_length']).set_title('Distribución de tamaño de requisitos');
+```
 
-# %%
+```python
 plt.figure(figsize=(12.8,6))
 sns.boxplot(data=df_95, x='class', y='req_length');
+```
 
-# %% [markdown]
-# ## Distribución de Dataset
-#
-# Análisis proporcionado en _Automatically Classifying Functional and Non-functional Requirements Using Supervised Machine Learning_
-#
-# | Categoría | Cantidad | Porcentage | Tamaño |
-# | - | -: | -: | -: |
-# | Funcional (F) | 255 | 40.80% | 20 |
-# | Avalilability (A) | 21 | 3.36% | 19 |
-# | Faul Tolerance (FT) | 10 | 1.60% | 19 |
-# | Legal (L) | 13 | 2.08% | 18 |
-# | Look & Feel (LF) | 38 | 6.08% | 20 |
-# | Mantainabilty (MN) | 17 | 2.72% | 28 |
-# | Operational (O) | 62 | 9.92% | 20 |
-# | Performance (PE) | 54 | 8.64% | 22 |
-# | Portability (PO) | 1 | 0.16% | 14 |
-# | Scalability (SC) | 21 | 3.36% | 18 |
-# | Security (SE) | 66 | 10.56% | 20 |
-# | Usability (US) | 67 | 10.72% | 22 |
-# | **Total** | **625** | **100%** |  |
+## Distribución de Dataset
 
-# %%
+Análisis proporcionado en _Automatically Classifying Functional and Non-functional Requirements Using Supervised Machine Learning_
+
+| Categoría | Cantidad | Porcentage | Tamaño |
+| - | -: | -: | -: |
+| Funcional (F) | 255 | 40.80% | 20 |
+| Avalilability (A) | 21 | 3.36% | 19 |
+| Faul Tolerance (FT) | 10 | 1.60% | 19 |
+| Legal (L) | 13 | 2.08% | 18 |
+| Look & Feel (LF) | 38 | 6.08% | 20 |
+| Mantainabilty (MN) | 17 | 2.72% | 28 |
+| Operational (O) | 62 | 9.92% | 20 |
+| Performance (PE) | 54 | 8.64% | 22 |
+| Portability (PO) | 1 | 0.16% | 14 |
+| Scalability (SC) | 21 | 3.36% | 18 |
+| Security (SE) | 66 | 10.56% | 20 |
+| Usability (US) | 67 | 10.72% | 22 |
+| **Total** | **625** | **100%** |  |
+
+```python
+
+```

@@ -42,13 +42,12 @@
 
 @ATTRIBUTE ProjectID {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}
 @ATTRIBUTE RequirementText string
-@ATTRIBUTE class {F,A,L,LF,MN,O,PE,SC,SE,US,FT,PO}%Check and make sure that FT and PO should be there
+@ATTRIBUTE class {O,PE,SE,US}%Check and make sure that FT and PO should be there
 
 @DATA
 1,'The system shall refresh the display every 60 seconds.',PE
 1,'The application shall match the color of the schema set forth by Department of Homeland Security',LF
 1,' If projected  the data must be readable.  On a 10x10 projection screen  90% of viewers must be able to read Event / Activity data from a viewing distance of 30',US
-1,' The product shall be available during normal business hours. As long as the user has access to the client PC  the system will be available 99% of the time during the first six months of operation.',A
 1,' If projected  the data must be understandable. On a 10x10 projection screen  90% of viewers must be able to determine that Events or Activities are occuring in current time from a viewing distance of 100',US
 1,'The product shall ensure that it can only be accessed by authorized users.  The product will be able to distinguish between authorized and unauthorized users in all access attempts',SE
 1,'The product shall be intuitive and self-explanatory.  :  90% of new users shall be able to start the display of Events or Activities within 90 minutes of using the product.',US
@@ -87,8 +86,6 @@
 2,'The CMA report shall be returned no later 60 seconds after the user has entered the CMA report criteria.',PE
 2,'The product shall synchronize contacts and appointments in an acceptable time.',PE
 2,'The product shall synchronize with the office system every hour.',PE
-2,' The product shall be available for use 24 hours per day  365 days  per year',A
-2,' Out of 1000 accesses to the system  the system is available 999 times.',A
 2,'The product shall operate in offline mode whenever internet connection is unavailable.',FT
 2,' The product shall allow the user to view previously downloaded search results  CMA reports  and appointments.',FT
 2,'The product shall retain user preferences in the event of a failure.',FT
@@ -123,8 +120,6 @@
 3,'The verbiage used within the system shall be consistent with Standard English and the terminology of the national Nursing Community.',US
 3,'Staff members shall be able to complete a set of tasks in a timely manner.',PE
 3,'The response time of general student management tasks shall take no longer than 5 seconds and the response time of schedule generation shall take no longer than 30 seconds.',PE
-3,'The system shall be available for use between the hours of 8am and 6pm.',A
-3,'The system shall achieve 95% up time.',A
 3,'system shall be able to handle all of the user requests/usage during business hours.',SC
 3,'The system shall cater to 10 simultaneous users from 9am to 5pm.',SC
 3,'The system shall be capable of processing 100% of nursing students and their classes for the next 10 years.',SC
@@ -265,8 +260,6 @@
 5,'The search for the preferred repair facility shall take no longer than 8 seconds.  The preferred repair facility is returned within 8 seconds',PE
 5,'The recycled parts audit report shall be returned to the user within 10 seconds.  The audit report shall be returned within 10 seconds.',PE
 5,'The preferred repair facility ratings shall be saved within 5 seconds. The save shall occur within 5 seconds.',PE
-5,'The product shall adhere to the corporate online availability schedule.  The application is brought down only within 98% of the scheduled outages per the availability schedule.',A
-5,'The product shall achieve a 98% uptime. The product shall not fail more than 2% of the available online time.',A
 5,'The product shall be able to handle up to 1500 simultaneous users. The system shall perform with 1500 users as a time.',SC
 5,' The average number of recycled parts records per day shall be 50 000.',SC
 5,' The product shall be able to handle 10 000 concurrent users within 2 years of the initial launch.',SC
@@ -338,7 +331,6 @@
 6,'The product shall allow for intuitive searching of available conference rooms.',US
 6,'The product shall conform to the Americans with Disabilities Act.',US
 6,'The response shall be fast enough to avoid interrupting the userï¿½s flow of thought.  90% of tasks shall complete within 5 seconds.  98% of tasks shall complete within 8 seconds.',PE
-6,' Aside from server failure  the software product shall achieve 99.99% up time.',A
 6,'The product shall create an exception log of problems encountered within the product for transmission to our company for analysis and resolution.',FT
 6,' The product shall be capable of handling up to 1 000 concurrent requests.  This number will increase to 2 000 by Release 2.  The concurrency capacity must be able to handle peak scheduling times such as early morning and late afternoon hours.',SC
 6,' The product shall be able to process 10 000 transactions per hour within two years of its launch.  This number will increase to 20 000 by Release 2.',SC
@@ -446,9 +438,6 @@
 8,' When streaming a movie  the buffering time should take no longer than 10 seconds (plus any latency on the userï¿½s connection.)',PE
 8,' While streaming a movie  buffering should only occur if there is latency in the userï¿½s connection.',PE
 8,' All credit card information will be secured on the server  and only accessible by authorized Izogn administrators.  Information will be encrypted in the database.',SE
-8,' The website shall be available for use 24 hours per day  365 days per year.',A
-8,'The website shall achieve 99.5% up time.',A
-8,' All movies shall be streamed on demand  at any time of the day.',A
 8,'The website shall continue to operate if the streaming server goes down.',FT
 8,'The website shall continue to operate if the payment gateway goes down.',FT
 8,'The streaming server will support 50 simultaneous streaming connections.',SC
@@ -466,9 +455,7 @@
 8,'Promotional updates to the website should take a day to update.',MN
 8,'Izogn Administrator must be able to update the category listings on the website within 2 minutes.',PE
 8,'Izogn Administrator must be able to add new products to the website within 2 minutes.',PE
-8,'The system will provide a 24 hour 800 toll free number for support to its customers.',A
 8,'The website will provide a help section with answers and solutions to common problems.',US
-8,' Velkat staff will be available for phone support between 7am-7pm  M-F to provide technical support to the Izogn administrators.',A
 8,'The product shall be able to be installed in the specified environment within 1 working day.',O
 8,'Only registered customers can purchase streaming movies.',SE
 8,' A customer can only stream a movie if they purchased it  and are within the 2 day viewing period.',SE
@@ -517,7 +504,6 @@
 9,'The process must fit within the processing time conditions set forth by the Auto Rep Assignment process in which a lead is assigned within 3 minutes of the total life cycle.',PE
 9,'The lead washing process will operate within the established physical web service structure.',O
 9,' The washing process must use a non binding  neutral data format  such as xml  when receiving and processing lead data.',O
-9,'Defect reports will be available to technical units on a 24x7 basis.',A
 9,'Washing parameters will be updated during scheduled maintenance hours.',MN
 9,'The vendor will verify the invalid lead.',F
 9,'Vendor will submit a credit validation record to be applied to the enterprise billing system.',F
@@ -542,7 +528,6 @@
 10,' When a shot is marked as a miss  the product shall simulate the sound of a shot missing its target.',LF
 10,' When a shot is marked as a hit  the product shall simulate the sound of a shot hitting its target.',LF
 10,' When a ship is sunk  the product shall simulate the sound of a sinking ship.',LF
-10,' The product shall be available 24 hours per day  seven days per week.',A
 10,'The product shall able to handle a large number of games simultaneously.',PE
 10,'The response time shall be fast enough to maintain the flow of the game.  The response time shall be no more than 2 seconds for 95% of responses and no more than 4% for the remaining responses.',PE
 10,'The product shall protect the identity of the players. The product shall provide players no access to information that might reveal the identity of another player.',PE
@@ -593,8 +578,6 @@
 11,' The system shall be responsive. At the DePaul TeleServices Center  when a supervisor uses the system to view a callers schedule  the system response time must be no more than 2 seconds 90% of the time and no more than 5 seconds the rest of the time.',PE
 11,' On a 56k connection  the system response time for all operations must be no more than 6 seconds 90% of the time.',PE
 11,' On a 112k connection or faster  the system response time for all operations must be no more than 3 seconds 90% of the time.',PE
-11,'The system shall have high availability every day of the year.The system must be available for use between 12:00AM and 6:00PM all days of the year.',A
-11,'The system must be available for use between 7:00AM and 11:59PM all days of the year.',A
 11,'The product shall be internet browser independent.The product must run using Internet Explorer and Netscape Navigator.',MN
 11,'The product shall ensure that only supervisors can advertise empty time slots.The product must ensure that supervisors are allowed to access advertise empty time slots.',SE
 11,'The product shall ensure that only supervisors can enter a callerï¿½s schedule.The product must ensure that supervisors are allowed to access advertise empty time slots.',SE
@@ -611,7 +594,6 @@
 12,'The product shall process messages within 2 seconds.The product shall have a maximum message processing time of 2 seconds',PE
 12,'The product shall poll the system for messages every second.The product shall poll the system for new messages at a maximum of every 1 second.',PE
 12,'The product shall provide Dynamic Change Support and Transparent resource addition.The product shall support Transparent Resource addition and Dynamic Change support to provide scalability and avoid service interruptions of more than 1 day.',PE
-12,'The product shall be available 99% of the time. Rationale: To avoid service interruption during busiest customer service response periods. The product shall be available 99.99% of the time for regular business days.',A
 12,'The product shall be robust.The product shall have fault avoidance based on standards adoption.',FT
 12,'The product shall be robust with fault tolerance.The product shall have fault tolerance by using recovery technique compensatory transaction and routing around failures.',FT
 12,'The product shall be able to process all transactions.The product shall process minimum of 1 million transactions per year.',SC
@@ -633,7 +615,6 @@
 13,'A user shall be able to use the system without instruction after a short amount of time. After one use a user should understand and remember 90% of the system usage and navigation.',US
 13,'All CCR users shall receive training before the WCS system is deployed. One training session will be held for 100% of CCR users before system deployment (based on a CCR user being available)',US
 13,'The WCS system shall use appropriate nomenclature and terminology as defined by the Corporate Community Grants organization. All interfaces and reports will undergo usability tests by CCR users.',US
-13,'The WCS system shall be available at all times as long as IBMï¿½s internal intranet W3 is accessible. The WCS system will be available 95% of the time IBMï¿½s internal intranet W3 is available.',A
 13,'The WCS system shall have the ability to connect other designated WCS databases currently not included in the system.',SC
 13,'The WCS system shall have the ability to include data for regions outside the United States and be accessed by users outside of the United States if approved by CCR management.',SC
 13,'The WCS system shall be run in a Windows environment. The WCS shall be accessed by users through the Internet on an IBM computer running a Windows 2000 or above operating system.',O
@@ -652,13 +633,11 @@
 14,'	Users shall be able to view at least 25 NFL player statistics and points on each page.',US
 14,'The application shall ask the user to confirm dropping a player or trading a player before performing the action.',US
 14,'The application shall be able to complete every user transaction within one fourth of a second of receiving the request over the network.',PE
-14,'The application shall have a downtime of at most 10 minutes per year.',A
 14,'The application shall run on a web application server.',O
 14,'A primary database will be used to store cached data for active users.',O
 14,'A secondary database will be used to store historical statistics and data.',O
 14,'Application updates shall occur between 3AM and 6 AM CST on Wednesday morning during the middle of the NFL season.',MN
 14,'New System version releases shall be released at the beginning of each NFL season.',MN
-15,' 	The RFS system should be available 24/7  especially during the budgeting period. The RFS system shall be available 90% of the time all year  and 98% during the budgeting period. 2% of the time  the system will become available within 1 hour of the time that the situation is reported.',A
 15,'98% of the user workstations shall meet the minimum hardware requirements prior to implementation. Minimum Hard Disk Space:  400MB.',O
 15,'98% of the user workstations shall meet the minimum software requirements prior to implementation: Microsoft Internet Explorer 5.0. Microsoft .NET Framework 1.1. Microsoft Internet Explorer Web Controls',O
 15,' 	The RFS system should be able to easily interface with the BDW environment  in order to load the data. ï¿½	7 data files shall be received from the BDW and loaded into the RFS system within 3 hours one day prior to the start of budgeting process  every year. The data will be as of October month-end. 	Test files (7) shall be loaded up to 5 times throughout the year  from the BDW.',O
